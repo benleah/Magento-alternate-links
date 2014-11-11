@@ -44,8 +44,13 @@ class Estorepro_AlternateLinks_Model_Observer
                 foreach ($stores as $store) 
                 {
                     $lang = $store->getConfig('general/locale/code');
-                    $lang = preg_replace("/[\s_]/", "-", $lang);
                     $cleanUrl = preg_replace('/\?.*/', '', $store->getCurrentUrl());
+                    
+                    if(Mage::getStoreConfig("web/alternatelinks/hreflang_value") == 'language'){
+                        $lang = substr($lang, 0, 2);
+                    } elseif(Mage::getStoreConfig("web/alternatelinks/hreflang_value") == 'language-region'){
+                        $lang = preg_replace("/[\s_]/", "-", $lang);
+                    }
             
                     if($cleanUrl != $currentUrl) {
                         $headBlock->addLinkRel('alternate"' . ' hreflang="' . $lang, $cleanUrl);
