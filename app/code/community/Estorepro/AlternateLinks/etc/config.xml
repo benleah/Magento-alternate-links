@@ -49,4 +49,15 @@
             </controller_action_layout_generate_blocks_after>
         </events>
     </frontend>
+    <global>
+        <page />
+        <models>
+            <estorepro_alternatelinks>
+                <class>Estorepro_AlternateLinks_Model</class>
+            </estorepro_alternatelinks>
+        </models>
+        <resources />
+        <extraconfig />
+        <blocks />
+    </global>
 </config>

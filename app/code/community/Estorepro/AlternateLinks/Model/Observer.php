@@ -37,20 +37,22 @@ class Estorepro_AlternateLinks_Model_Observer
         $headBlock = Mage::app()->getLayout()->getBlock('head');
         $stores = Mage::app()->getWebsite()->getStores();
         $currentUrl = Mage::helper('core/url')->getCurrentUrl();
- 
-        if($headBlock)
-        {
-            foreach ($stores as $store) 
-            {
-                $lang = $store->getConfig('general/locale/code');
-                $lang = preg_replace("/[\s_]/", "-", $lang);
-                $cleanUrl = preg_replace('/\?.*/', '', $store->getCurrentUrl());
         
-                if($cleanUrl != $currentUrl) {
-                    $headBlock->addLinkRel('alternate"' . ' hreflang="' . $lang, $cleanUrl);
+        if(Mage::getStoreConfig("web/alternatelinks/enable_module") != false){
+            if($headBlock)
+            {
+                foreach ($stores as $store) 
+                {
+                    $lang = $store->getConfig('general/locale/code');
+                    $lang = preg_replace("/[\s_]/", "-", $lang);
+                    $cleanUrl = preg_replace('/\?.*/', '', $store->getCurrentUrl());
+            
+                    if($cleanUrl != $currentUrl) {
+                        $headBlock->addLinkRel('alternate"' . ' hreflang="' . $lang, $cleanUrl);
+                    }
                 }
             }
+            return $this;
         }
-        return $this;
     }
 }
