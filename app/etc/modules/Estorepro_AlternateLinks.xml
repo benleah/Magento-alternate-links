@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Estorepro_AlternateLinks>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Estorepro_AlternateLinks>
+    </modules>
+</config>
