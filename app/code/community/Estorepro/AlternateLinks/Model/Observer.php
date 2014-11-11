@@ -44,13 +44,14 @@ class Estorepro_AlternateLinks_Model_Observer
         $currentUrl = Mage::helper('core/url')->getCurrentUrl();
         
         //Test to see if the module is disabled
-        if(Mage::getStoreConfig("web/alternatelinks/enable_module") != false)
-        {
+        if(Mage::getStoreConfig("web/alternatelinks/enable_module") != false) {
+            
             //Test to make sure the native head structural block is exists
-            if($headBlock)
-            {
-                foreach ($stores as $store) 
-                {
+            if($headBlock) {
+                
+                //Loop through the stores
+                foreach ($stores as $store) {
+                    
                     //gets the store language and region in native xx_XX format
                     $lang = $store->getConfig('general/locale/code');
                     
