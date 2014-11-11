@@ -1,0 +1,1 @@
+##Alternate Links for Magento
