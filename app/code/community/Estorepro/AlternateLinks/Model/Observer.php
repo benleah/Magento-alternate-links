@@ -38,7 +38,8 @@ class Estorepro_AlternateLinks_Model_Observer
         $stores = Mage::app()->getWebsite()->getStores();
         $currentUrl = Mage::helper('core/url')->getCurrentUrl();
         
-        if(Mage::getStoreConfig("web/alternatelinks/enable_module") != false){
+        if(Mage::getStoreConfig("web/alternatelinks/enable_module") != false)
+        {
             if($headBlock)
             {
                 foreach ($stores as $store) 
@@ -46,9 +47,9 @@ class Estorepro_AlternateLinks_Model_Observer
                     $lang = $store->getConfig('general/locale/code');
                     $cleanUrl = preg_replace('/\?.*/', '', $store->getCurrentUrl());
                     
-                    if(Mage::getStoreConfig("web/alternatelinks/hreflang_value") == 'language'){
+                    if(Mage::getStoreConfig("web/alternatelinks/hreflang_value") == 'language') {
                         $lang = substr($lang, 0, 2);
-                    } elseif(Mage::getStoreConfig("web/alternatelinks/hreflang_value") == 'language-region'){
+                    } elseif(Mage::getStoreConfig("web/alternatelinks/hreflang_value") == 'language-region') {
                         $lang = preg_replace("/[\s_]/", "-", $lang);
                     }
             
