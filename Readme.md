@@ -6,7 +6,7 @@ Easily add alternate links to the head of international Magento stores to help G
 
 ###The &lt;head&gt;
 
-Alternate Links for Magento adds an alternate link to the Magento head, specifying an `hreflang=""` value automatically assigned based on each store&rsquo;s locale configuration (SYSTEM > CONFIGURATION > WEB > LOCALE OPTIONS).
+Alternate Links for Magento adds an alternate link to the Magento head for each alternate store view, specifying an `hreflang=""` value automatically assigned based on each store&rsquo;s locale configuration (SYSTEM > CONFIGURATION > WEB > LOCALE OPTIONS).
 
     <link rel="alternate" hreflang="xx-XX" href="http://www.yourmagentostore.com/en/any-url/" />
 
