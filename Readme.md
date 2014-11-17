@@ -2,7 +2,7 @@
 
 ##Overview
 
-* Adds alternate links `&lt;link rel="alternate" /&gt;` to the Magento head.
+* Adds alternate links `<link rel="alternate" />` to the Magento head.
 * Automatically detects alternative store views.
 * Choose from the Google recommended ISO 639-1 or ISO 3166-1 Alpha 2 `hreflang=""` formats.
 
