@@ -1,6 +1,6 @@
 ##Alternate Links for Magento
 
-##Overview
+###Overview
 
 * Adds alternate links `<link rel="alternate" />` to the Magento head.
 * Automatically detects alternative store views.
