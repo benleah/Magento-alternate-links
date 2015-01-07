@@ -41,7 +41,10 @@ class Estorepro_AlternateLinks_Model_Observer
         $stores = Mage::app()->getWebsite()->getStores();
         
         //Gets current page URL
-        $currentUrl = Mage::helper('core/url')->getCurrentUrl();
+        //$currentUrl = Mage::helper('core/url')->getCurrentUrl();
+        
+        //Gets current store Id
+        $currentStoreId = Mage::app()->getStore()->getStoreId();
         
         //Test to see if the module is disabled
         if(Mage::getStoreConfig("web/alternatelinks/enable_module") != false) {
@@ -69,8 +72,11 @@ class Estorepro_AlternateLinks_Model_Observer
                         $lang = preg_replace("/[\s_]/", "-", $lang);
                     }
                     
+                    //Gets store id from each store object
+                    $storeId = $store->getStoreId();
+
                     //Test to see if store in the array is not the current store (to show alternates only - not 'this' store)
-                    if($cleanUrl != $currentUrl) {
+                    if(($storeId != $currentStoreId) && ($store->getIsActive() == TRUE)) {
                         
                         //Output the rel link using the native addLinkRel() method
                         $headBlock->addLinkRel('alternate"' . ' hreflang="' . $lang, $cleanUrl);
