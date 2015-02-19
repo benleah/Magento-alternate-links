@@ -72,15 +72,8 @@ class Estorepro_AlternateLinks_Model_Observer
                         $lang = preg_replace("/[\s_]/", "-", $lang);
                     }
                     
-                    //Gets store id from each store object
-                    $storeId = $store->getStoreId();
-
-                    //Test to see if store in the array is not the current store (to show alternates only - not 'this' store)
-                    if(($storeId != $currentStoreId) && ($store->getIsActive() == TRUE)) {
-                        
-                        //Output the rel link using the native addLinkRel() method
-                        $headBlock->addLinkRel('alternate"' . ' hreflang="' . $lang, $cleanUrl);
-                    }
+                    //Output the rel link using the native addLinkRel() method
+                    $headBlock->addLinkRel('alternate"' . ' hreflang="' . $lang, $cleanUrl);
                 }
             }
             return $this;
